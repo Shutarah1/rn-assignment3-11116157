@@ -1,6 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
 
@@ -36,6 +33,28 @@ export default function App() {
           <Image source={require('./assets/filter.jpg')} style={styles.filterIcon} /> 
         </TouchableOpacity>
       </View>
+
+      <Text style={styles.sectionTitle}>Categories</Text>
+      <ScrollView horizontal={true} style={styles.horizontalScroll} showsHorizontalScrollIndicator={false}>
+        <View style={styles.categoriesContainer}>
+          {[
+            { image: 'coding.png', title: 'Code', tasks: '12 Tasks' },
+            { image: 'Reading.png', title: 'Read', tasks: '12 Tasks' },
+            { image: 'Dance.png', title: 'Dance', tasks: '12 Tasks' },
+            { image: 'exercise.png', title: 'Exercise', tasks: '12 Tasks' },
+            { image: 'Praying.png', title: 'Pray', tasks: '12 Tasks' },
+            { image: 'jogging.png', title: 'Jog', tasks: '12 Tasks' },
+            { image: 'cooking.png', title: 'Cook', tasks: '12 Tasks' }
+          ].map((category, index) => (
+            <TouchableOpacity key={index} style={styles.categoryCard}>
+               <Image style={styles.categoryImage} source={categoryImages[category.image]} />
+              <Text style={styles.categoryTitle}>{category.title}</Text>
+              <Text style={styles.categoryTasks}>{category.tasks}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+
       <View style={styles.ongoingTasks}>
         <Text style={styles.sectionTitle}>Ongoing Tasks</Text>
         {[
@@ -50,7 +69,7 @@ export default function App() {
       </View>
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -149,6 +168,7 @@ const styles = StyleSheet.create({
   },
   ongoingTasks: {
     marginTop: 20,
+    
   },
   sectionTitle: {
     fontSize: 24,

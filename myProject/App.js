@@ -9,6 +9,7 @@ const categoryImages = {
   'Praying.png': require('./assets/Praying.png'),
   'jogging.png': require('./assets/jogging.png'),
   'cooking.png': require('./assets/cooking.png'),
+  'sleeping.png': require('./assets/sleeping.png'),
 };
 
 export default function App() {
@@ -44,7 +45,8 @@ export default function App() {
             { image: 'exercise.png', title: 'Exercise', tasks: '12 Tasks' },
             { image: 'Praying.png', title: 'Pray', tasks: '12 Tasks' },
             { image: 'jogging.png', title: 'Jog', tasks: '12 Tasks' },
-            { image: 'cooking.png', title: 'Cook', tasks: '12 Tasks' }
+            { image: 'cooking.png', title: 'Cook', tasks: '12 Tasks' },
+            { image: 'sleeping.png', title: 'Sleep', tasks: '12 Tasks' }
           ].map((category, index) => (
             <TouchableOpacity key={index} style={styles.categoryCard}>
                <Image style={styles.categoryImage} source={categoryImages[category.image]} />

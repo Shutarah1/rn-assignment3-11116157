@@ -36,3 +36,18 @@ export default function App() {
           <Image source={require('./assets/filter.jpg')} style={styles.filterIcon} /> 
         </TouchableOpacity>
       </View>
+      <View style={styles.ongoingTasks}>
+        <Text style={styles.sectionTitle}>Ongoing Tasks</Text>
+        {[
+          'Mobile App Development', 'Web Development', 'Push Ups', 'Exercise', 'Study',
+          'Data Structures', 'Software Engineering', 'Info Modelling', 'Projects',
+          'Cyber Security', 'Canva', 'UI/UX', 'Mock-Up Text', 'Timetable', 'After School Activities'
+        ].map((task, index) => (
+          <TouchableOpacity key={index} style={styles.taskCard}>
+            <Text style={styles.taskText}>{task}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </ScrollView>
+  );
+};
